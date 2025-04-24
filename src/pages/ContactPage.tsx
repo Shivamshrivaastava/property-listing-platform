@@ -1,6 +1,8 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet'; // Import Leaflet for custom marker if needed
 
 const ContactPage: React.FC = () => {
   return (
@@ -117,14 +119,17 @@ const ContactPage: React.FC = () => {
             <h2 className="text-xl font-semibold mb-6">Our Location</h2>
             
             <div className="bg-gray-200 rounded-lg overflow-hidden h-96 flex items-center justify-center">
-              <div className="text-center p-6">
-                <MapPin size={48} className="mx-auto text-gray-400 mb-4" />
-                <h3 className="text-lg font-medium text-gray-700 mb-2">Map View</h3>
-                <p className="text-gray-500 max-w-md mx-auto">
-                  In a real application, an interactive map would be displayed here 
-                  showing our office location.
-                </p>
-              </div>
+              <MapContainer center={[47.6062, -122.3321]} zoom={13} className="w-full h-full">
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <Marker position={[47.6062, -122.3321]}>
+                  <Popup>
+                    <span>123 Real Estate Blvd, Seattle, WA</span>
+                  </Popup>
+                </Marker>
+              </MapContainer>
             </div>
           </div>
           

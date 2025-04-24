@@ -701,10 +701,154 @@ export const properties = [
     },
     latitude: 35.1983,
     longitude: -111.6513
+  },
+  {
+    id: '22',
+    title: 'Modern 2BHK Apartment in Pune',
+    price: 5800000,
+    address: '402 Serenity Heights, Baner',
+    city: 'Pune',
+    state: 'Maharashtra',
+    zipCode: '411045',
+    description: 'Contemporary apartment with modular kitchen, spacious balconies, and security features.',
+    beds: 2,
+    baths: 2,
+    squareFeet: 1100,
+    propertyType: 'apartment',
+    yearBuilt: 2021,
+    features: ['Modular Kitchen', 'Balcony View', 'Security', 'Lift Access', 'Covered Parking'],
+    images: [
+      'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg',
+      'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg',
+      'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg'
+    ],
+    agent: {
+      name: 'Priya Shah',
+      phone: '+91 98765 43210',
+      email: 'priya.shah@indiahomes.com',
+      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg'
+    },
+    latitude: 18.559,
+    longitude: 73.789
+  },
+  {
+    id: '23',
+    title: 'Luxury Villa with Garden in Bangalore',
+    price: 15000000,
+    address: '12 Prestige Elgin, Whitefield',
+    city: 'Bangalore',
+    state: 'Karnataka',
+    zipCode: '560066',
+    description: 'Elegant 4BHK villa with private lawn, pool, and high-end interiors in a gated community.',
+    beds: 4,
+    baths: 4,
+    squareFeet: 2800,
+    propertyType: 'villa',
+    yearBuilt: 2018,
+    features: ['Private Lawn', 'Swimming Pool', 'Gated Society', 'Modern Interiors', 'Servant Quarters'],
+    images: [
+      'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg',
+      'https://images.pexels.com/photos/276551/pexels-photo-276551.jpeg',
+      'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg'
+    ],
+    agent: {
+      name: 'Rohan Mehta',
+      phone: '+91 99458 12345',
+      email: 'rohan.mehta@realtyindia.com',
+      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg'
+    },
+    latitude: 12.9698,
+    longitude: 77.7499
+  },
+  {
+    id: '24',
+    title: 'Heritage Haveli in Jaipur',
+    price: 9000000,
+    address: 'Haveli No. 18, Bani Park',
+    city: 'Jaipur',
+    state: 'Rajasthan',
+    zipCode: '302016',
+    description: 'Traditional Rajasthani haveli with antique decor, courtyards, and sandstone walls.',
+    beds: 3,
+    baths: 3,
+    squareFeet: 2400,
+    propertyType: 'haveli',
+    yearBuilt: 1945,
+    features: ['Antique Decor', 'Sandstone Construction', 'Courtyard', 'Rajasthani Architecture', 'Heritage Zone'],
+    images: [
+      'https://images.pexels.com/photos/432202/pexels-photo-432202.jpeg',
+      'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
+      'https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg'
+    ],
+    agent: {
+      name: 'Meenakshi Rathore',
+      phone: '+91 98290 78900',
+      email: 'meenakshi.r@heritagehomes.in',
+      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg'
+    },
+    latitude: 26.9352,
+    longitude: 75.8081
+  },
+  {
+    id: '25',
+    title: 'Seaside Cottage in Goa',
+    price: 7200000,
+    address: 'Cottage 7, Palolem Beach',
+    city: 'Canacona',
+    state: 'Goa',
+    zipCode: '403702',
+    description: 'Cozy beachside cottage with coconut palms, hammocks, and panoramic sea views.',
+    beds: 2,
+    baths: 1,
+    squareFeet: 850,
+    propertyType: 'cottage',
+    yearBuilt: 2017,
+    features: ['Beach View', 'Wooden Deck', 'Hammocks', 'Sea Breeze', 'Palm Surroundings'],
+    images: [
+      'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg',
+      'https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg',
+      'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg'
+    ],
+    agent: {
+      name: 'Joseph Fernandes',
+      phone: '+91 94220 33445',
+      email: 'joseph.f@goaproperties.com',
+      image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg'
+    },
+    latitude: 15.0092,
+    longitude: 74.0234
+  },
+  {
+    id: '26',
+    title: 'Smart Studio in Hyderabad',
+    price: 3600000,
+    address: '22 Pearl Residency, Gachibowli',
+    city: 'Hyderabad',
+    state: 'Telangana',
+    zipCode: '500032',
+    description: 'Compact and tech-enabled studio apartment near IT corridor, ideal for working professionals.',
+    beds: 1,
+    baths: 1,
+    squareFeet: 500,
+    propertyType: 'studio',
+    yearBuilt: 2022,
+    features: ['Smart Home Features', 'Proximity to Tech Parks', 'Furnished', 'Wi-Fi Enabled', 'Modern Design'],
+    images: [
+      'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg',
+      'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg',
+      'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg'
+    ],
+    agent: {
+      name: 'Anjali Rao',
+      phone: '+91 97000 11234',
+      email: 'anjali.rao@techhomes.in',
+      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg'
+    },
+    latitude: 17.444,
+    longitude: 78.3498
   }
-
-  
 ];
+
 
 export const getPropertyById = (id) => {
   return properties.find(property => property.id === id);
