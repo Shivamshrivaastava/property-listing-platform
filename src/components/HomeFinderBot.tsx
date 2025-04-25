@@ -5,6 +5,14 @@ const HomeFinderBot: React.FC = () => {
   const [query, setQuery] = useState('');
   const [response, setResponse] = useState('');
   const [showStaging, setShowStaging] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const sanitizeResponse = (text: string) => {
+
+    return text
+      .replace(/\*/g, '') // remove asterisks
+      .replace(/\n/g, '<br/>'); // convert line breaks to <br/>
+  };
 
   const handleSend = async () => {
     if (!query.trim()) return;
@@ -16,6 +24,19 @@ const HomeFinderBot: React.FC = () => {
       lowerQuery.includes('furnish') ||
       lowerQuery.includes('stage') ||
       lowerQuery.includes('arrange');
+
+    const isPropertyQuery =
+      lowerQuery.includes('property') ||
+      lowerQuery.includes('house') ||
+      lowerQuery.includes('home') ||
+      lowerQuery.includes('apartment') ||
+      lowerQuery.includes('buy') ||
+      lowerQuery.includes('sell') ||
+      lowerQuery.includes('rent') ||
+      lowerQuery.includes('location') ||
+      lowerQuery.includes('price');
+
+    setExpanded(true);
 
     const prompt = `
 You are HomeFinder Bot. You help users find homes and visualize room staging. Only answer if it's about:
@@ -40,9 +61,21 @@ User: ${query}
     );
 
     const data = await res.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response.';
-    setResponse(reply);
+    const rawReply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response.';
+    const cleanReply = sanitizeResponse(rawReply);
+
+    setResponse(cleanReply);
     setShowStaging(isStagingQuery);
+
+    if (isStagingQuery || isPropertyQuery) {
+      setTimeout(() => {
+        setOpen(false);
+        setResponse('');
+        setQuery('');
+        setShowStaging(false);
+        setExpanded(false);
+      }, 30000);
+    }
   };
 
   return (
@@ -57,7 +90,10 @@ User: ${query}
       )}
 
       {open && (
-        <div className="w-80 bg-white rounded-lg shadow-lg p-4 border border-gray-300">
+        <div
+          className={`transition-all duration-300 ${expanded ? 'w-96 h-auto' : 'w-80'
+            } bg-white rounded-lg shadow-lg p-4 border border-gray-300`}
+        >
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-lg font-bold text-primary-600">HomeFinder Bot</h3>
             <button onClick={() => setOpen(false)} className="text-sm text-gray-500 hover:text-gray-700">
@@ -65,32 +101,36 @@ User: ${query}
             </button>
           </div>
 
-          <div className="text-sm text-gray-700 h-24 overflow-y-auto border p-2 rounded mb-3 bg-gray-50">
-            {response || 'Hi! Ask me about homes or room staging.'}
-          </div>
+          <div
+            className="text-sm text-gray-700 max-h-48 overflow-y-auto border p-2 rounded mb-3 bg-gray-50"
+            dangerouslySetInnerHTML={{
+              __html: response || 'Hi! Ask me about homes or room staging.',
+            }}
+          />
 
           {showStaging && (
             <div className="mb-3">
               <p className="text-xs text-gray-500 font-medium mb-1">Suggested layouts:</p>
               <div className="flex gap-2 overflow-x-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1618220179428-22790c4167c6?auto=format&fit=crop&w=300&q=80"
-                  alt="Modern living room"
+                  src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
+                  alt="Layout 1"
                   className="w-24 h-20 object-cover rounded shadow"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1598928506311-c55dedfed29d?auto=format&fit=crop&w=300&q=80"
-                  alt="Minimalist bedroom"
+                  src="https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg"
+                  alt="Layout 2"
                   className="w-24 h-20 object-cover rounded shadow"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1616594039964-758eacb3aa5a?auto=format&fit=crop&w=300&q=80"
-                  alt="Scandinavian style"
+                  src="https://images.pexels.com/photos/271800/pexels-photo-271800.jpeg"
+                  alt="Layout 3"
                   className="w-24 h-20 object-cover rounded shadow"
                 />
               </div>
             </div>
           )}
+
 
           <input
             type="text"
