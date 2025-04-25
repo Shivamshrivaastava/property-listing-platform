@@ -8,6 +8,12 @@
 
 ---
 
+## ✨ Overview
+
+In today’s fast-paced real estate world, browsing through hundreds of listings can be overwhelming. This **Property Listing Platform** simplifies the experience with dynamic filters, responsive design, interactive media, and user-friendly interfaces to ensure buyers and renters find their dream property with ease.
+
+---
+
 ## 🌐 Live Demo
 
 👉 **Deployed Here:** [https://property-listing-1.web.app/](https://property-listing-1.web.app/)
